@@ -1,3 +1,4 @@
+
 name: CI
 
 on:
@@ -10,8 +11,11 @@ on:
 
 jobs:
   test:
-
     runs-on: ubuntu-latest
+
+    env:
+      DATABASE_URL: sqlite:///database/books.db
+      LOG_LEVEL: INFO
 
     steps:
       - name: Checkout repository
@@ -29,5 +33,4 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest
-
+          pytest 
